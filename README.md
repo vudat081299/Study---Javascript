@@ -2,8 +2,8 @@
 Study Javascript
 
 # Class and Constructor Function
-Trong Javascript, muốn khởi tạo 1 thực thể (instance object), ta sẽ bắt đầu với việc xây dựng 1 bản khuôn mẫu (constructor) và sau đó sử dụng từ khóa **new**.
-Bản khuôn mẫu đó, có thể là 1 constructor function (cách cũ) hoặc 1 class (từ ECMAScript 2015).
+- Trong Javascript, muốn khởi tạo 1 thực thể (instance object), ta sẽ bắt đầu với việc xây dựng 1 bản khuôn mẫu (constructor) và sau đó sử dụng từ khóa **new**.
++ Bản khuôn mẫu đó, có thể là 1 constructor function (cách cũ) hoặc 1 class (từ ECMAScript 2015).
 
 **Method 1**: Constructor function
 ```
