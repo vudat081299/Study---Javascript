@@ -148,12 +148,41 @@ milu.bark() // Milu barks: Go Go Go
 - Còn với việc khai báo bằng class (method 2) thì sẽ không cần quan tâm vấn đề này, do nó không sử dụng arrow function.
 - Kết luận: Cú pháp class tiện lợi hơn nhiều khi lập trình hướng đối tượng trong Javascript. Nếu bạn vẫn quyết định sử dụng các cú pháp cũ, cần nắm rõ nguyên tắc kế thừa bằng prototype và cách sử dụng this.
 
-Reference:
-- https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Classes
-- https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Operators/new
-- https://www.taniarascia.com/understanding-classes-in-javascript/
+
+
+# Inheritance
+```
+function Person(firstName, lastName) {
+   this.firstName = firstName;
+   this.lastName = lastName;
+}
+
+Person.prototype.getFullName = function() {
+   return this.firstName + ' ' + this.lastName;
+}
+
+function Student(firstName, lastName) {
+   Person.call(this, firstName, lastName);
+}
+
+Student.prototype = Object.create(Person.prototype); // hoặc có thể viết Student.prototype = new Person();
+
+const john = new Student('John', 'Snow');
+console.log(john.getFullName());
+```
+- Về bản chất Object.create sẽ link prototype của Student với prototype của Person. Để mà khi chúng ta truy xuất những method của cha(Person) thì Javascript Engine sẽ dò tìm trong prototype của Person. Đây là cách thiết kế của JS, những đối tượng thường có prototype và một khi chúng ta muốn thừa kề lẫn nhau, chúng ta có thể link các prototype lại với nhau.
 
 
 
 
 
+
+
+**Reference**:
+> **Class and Constructor Function**
+> - https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Classes
+> - https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Operators/new
+> - https://www.taniarascia.com/understanding-classes-in-javascript/
+
+> **Inheritance**
+> - http://thaunguyen.com/blog/javascript/thua-ke-trong-javascript-phai-lam-the-nao
