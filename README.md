@@ -143,7 +143,7 @@ function Dog('name', 'color', 'type') {
 let milu = new Dog()
 milu.bark() // Milu barks: Go Go Go
 ```
-#Tại sao method 3 lại hoạt động đúng, còn method 1 lại không?
+# Tại sao method 3 lại hoạt động đúng, còn method 1 lại không?
 - Lí do là bởi arrow function không tự define this, mà sẽ quay ngược lại tìm giá trị của this tại thời điểm arrow function được khai báo. Với method 1, tại thời điểm khai báo, this có giá trị là global hoặc window, do đó this.name là undefined. Trong khi đó với method 3, thời điểm khai báo chính là Bước 3 khi từ khóa new làm việc, tại đó this được gán giá trị chính là object milu rồi. Do đó method 3 sẽ hoạt động đúng.
 - Còn với việc khai báo bằng class (method 2) thì sẽ không cần quan tâm vấn đề này, do nó không sử dụng arrow function.
 - Kết luận: Cú pháp class tiện lợi hơn nhiều khi lập trình hướng đối tượng trong Javascript. Nếu bạn vẫn quyết định sử dụng các cú pháp cũ, cần nắm rõ nguyên tắc kế thừa bằng prototype và cách sử dụng this.
@@ -152,22 +152,6 @@ Reference:
 - https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Classes
 - https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Operators/new
 - https://www.taniarascia.com/understanding-classes-in-javascript/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
